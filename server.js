@@ -18,9 +18,9 @@ mongoose.connect(DB, { useUnifiedTopology: true }).then(() => {
 //   res.sendFile(__dirname + '/public/index.html')
 
 // })
-app.use(express.static(path.join(__dirname, 'public'))); //  "public" off of current is root
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 const server = app.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
