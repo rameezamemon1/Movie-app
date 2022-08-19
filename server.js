@@ -7,8 +7,6 @@ dotenv.config({ path: "./config.env" });
 
 const DB = process.env.DATABASE
 
-app.use(express.static("public"))
-
 mongoose.connect(DB, { useUnifiedTopology: true }).then(() => {
   console.log("DB connection is established!");
 });

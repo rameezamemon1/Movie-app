@@ -9,9 +9,6 @@ const globalErrorHandler = require("./controllers/errorController");
 
 const app = express();
 
-// Setting up "Pug"
-app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "views/pug-templates")); // joining directory name /views
 
 app.use(express.static(`${__dirname}`)); // ! for CSS to work
 
@@ -21,6 +18,11 @@ app.use(cookieParser()); // data from cookies
 app.use("/", viewRouter);
 app.use("/api/v1/movies", movieRouter);
 app.use("/api/v1/users", userRouter);
+// Setting up "Pug"
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views/pug-templates")); // joining directory name /views
+app.use(express.static("public"))
+
 
 // Handling unknown routes ––– must be at the end of all routes
 app.all("*", (req, res, next) => {
