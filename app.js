@@ -27,6 +27,7 @@ app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404)); // will skip all other middlewares in the stack and go straight to the next one down below
 });
 
+
 // Middleware error handling
 app.use(globalErrorHandler);
 
